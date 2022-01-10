@@ -8,20 +8,16 @@
  *
  * @author Ganesh Sharma
  */
-
 //import the packages for using the classes in them into the program
-// import com.lms.spring.AddBooksBean;
-// import com.lms.spring.BooksBean;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class JLibrary extends JFrame implements ActionListener {
+
     //for creating the JPanel
     private JPanel searchPanel = new JPanel();
     //for creating the JToolBar for the program
@@ -44,8 +40,6 @@ public class JLibrary extends JFrame implements ActionListener {
     private StatusBar statusbar = new StatusBar();
     private ListBooks listBooks;
     private AddBooks addBooks;
-//    ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-//    AddBooksBean addBooksBean = (AddBooksBean) context.getBean("AddBooksBean");
     private ListAvailbleBooks listAvailble;
     private ListBorrowedBooks listBorrowed;
     private EditBooks editBooks;
@@ -60,6 +54,7 @@ public class JLibrary extends JFrame implements ActionListener {
     private ListIssuedBooks listIssued;
     private ChangePassword changePassword;
     private DeleteLibrarian deleteUser;
+
     //constructor of JLibrary
     public JLibrary() {
         //for setting the title for the frame
@@ -102,7 +97,7 @@ public class JLibrary extends JFrame implements ActionListener {
         //get the graphical user interface components display the desktop
         Container cp = getContentPane();
         //desktop.setBackground(Color.GRAY);
-        Color clr=new Color(153,153,255);
+        Color clr = new Color(153, 153, 255);
         desktop.setBackground(clr);
         cp.add("Center", desktop);
         //for setting the font
@@ -144,6 +139,7 @@ public class JLibrary extends JFrame implements ActionListener {
         //show the program
         setVisible(true);
     }
+
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == menu.addBook || ae.getSource() == toolbar.button[0]) {
             Thread runner = new Thread() {
@@ -153,8 +149,8 @@ public class JLibrary extends JFrame implements ActionListener {
                     desktop.add(addBooks);
                     try {
                         addBooks.setSelected(true);
-                    }catch (java.beans.PropertyVetoException e) {
-                }
+                    } catch (java.beans.PropertyVetoException e) {
+                    }
                 }
             };
             runner.start();
@@ -327,11 +323,11 @@ public class JLibrary extends JFrame implements ActionListener {
             };
             runner.start();
         }
-        if(ae.getSource()==menu.listissuedbooks || ae.getSource() == toolbar.button[13]){
+        if (ae.getSource() == menu.listissuedbooks || ae.getSource() == toolbar.button[13]) {
             Thread runner = new Thread() {
 
                 public void run() {
-                    listIssued=new ListIssuedBooks();
+                    listIssued = new ListIssuedBooks();
                     desktop.add(listIssued);
                     try {
                         listIssued.setSelected(true);
@@ -345,10 +341,10 @@ public class JLibrary extends JFrame implements ActionListener {
             Thread runner = new Thread() {
 
                 public void run() {
-                    try
-                    {
-                   Runtime.getRuntime().exec("notepad.exe");
-                    }catch(Exception e){}
+                    try {
+                        Runtime.getRuntime().exec("notepad.exe");
+                    } catch (Exception e) {
+                    }
                 }
             };
             runner.start();
@@ -358,19 +354,19 @@ public class JLibrary extends JFrame implements ActionListener {
             Thread runner = new Thread() {
 
                 public void run() {
-                    try
-                    {
-                   Runtime.getRuntime().exec("calc.exe");
-                    }catch(Exception e){}
+                    try {
+                        Runtime.getRuntime().exec("calc.exe");
+                    } catch (Exception e) {
+                    }
                 }
             };
             runner.start();
         }
-        if(ae.getSource()==menu.changePassword || ae.getSource() == toolbar.button[16]){
+        if (ae.getSource() == menu.changePassword || ae.getSource() == toolbar.button[16]) {
             Thread runner = new Thread() {
 
                 public void run() {
-                    changePassword=new ChangePassword();
+                    changePassword = new ChangePassword();
                     desktop.add(changePassword);
                     try {
                         changePassword.setSelected(true);
@@ -380,9 +376,9 @@ public class JLibrary extends JFrame implements ActionListener {
             };
             runner.start();
         }
-        if(ae.getSource()==menu.deleteLibrarian || ae.getSource() == toolbar.button[17]){
-           
-            deleteUser=new DeleteLibrarian();
+        if (ae.getSource() == menu.deleteLibrarian || ae.getSource() == toolbar.button[17]) {
+
+            deleteUser = new DeleteLibrarian();
         }
         if (ae.getSource() == menu.about || ae.getSource() == toolbar.button[18]) {
             Thread runner = new Thread() {

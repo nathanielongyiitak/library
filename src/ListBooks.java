@@ -52,10 +52,10 @@ public class ListBooks extends JInternalFrame {
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	//private static final String DATABASE_URL = "jdbc:odbc:JLibrary";
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false";
-    private static final String PASSWORD="abc123";
+    private static final String PASSWORD=Constants.PASSWORD;
     private static final String USER_NAME="root";
 	private static final String DEFAULT_QUERY = "SELECT BookID, Subject, Title, Author," +
-	        "Publisher, Copyright, Edition, Pages, NumberOfBooks, ISBN, Library, Availble,ShelfNo FROM Books";
+	        "Publisher, Copyright, Edition, Pages, NumberOfBooks, ISBN, Library, Availble,ShelfNo FROM books";
 
 	//constructor of listBooks
 	public ListBooks() {

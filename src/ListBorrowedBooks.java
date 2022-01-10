@@ -52,11 +52,11 @@ public class ListBorrowedBooks extends JInternalFrame {
 	//private static final String DATABASE_URL = "jdbc:odbc:JLibrary";
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false";
     private static final String USER_NAME="root";
-    private static final String PASSWORD="abc123";
+    private static final String PASSWORD=Constants.PASSWORD;
 	/*private static final String DEFAULT_QUERY = "select BookID,Subject,Title,Author,Publisher,Copyright,Edition," +
 	        "Pages,ISBN, Library from Books where NumberOfBorrowedBooks > 0 OR Availble = false";*/
 private static final String DEFAULT_QUERY = "select BookID,Subject,Title,Author,Publisher,Copyright,Edition," +
-	        "Pages,ISBN, Library from Books where NumberOfBorrowedBooks > 0";
+	        "Pages,ISBN, Library from books where NumberOfBorrowedBooks > 0";
 	//constructor of listBorrowedBooks
 	public ListBorrowedBooks() {
 		//for setting the title for the internal frame

@@ -52,10 +52,10 @@ public class ListIssuedBooks extends JInternalFrame {
     //private static final String DATABASE_URL = "jdbc:odbc:JLibrary";
      private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false";
      private static final String USER_NAME="root";
-     private static final String PASSWORD="abc123";
+     private static final String PASSWORD=Constants.PASSWORD;
     private static final String DEFAULT_QUERY = "SELECT B.BookID, BK.Title, B.MemberID," +
             " B.DayOfBorrowed, B.DayOfReturn, M.RegNo, M.Name, M.Email" +
-            " FROM Borrow AS B, Books AS BK, Members AS M " +
+            " FROM borrow AS B, books AS BK, members AS M " +
             "WHERE (B.BookID=BK.BookID) and (B.MemberID=M.MemberID)";
 
 

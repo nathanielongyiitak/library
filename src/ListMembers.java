@@ -52,9 +52,9 @@ public class ListMembers extends JInternalFrame {
 	//private static final String DATABASE_URL = "jdbc:odbc:JLibrary";
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false";
     private static final String USER_NAME="root";
-    private static final String PASSWORD="abc123";
+    private static final String PASSWORD=Constants.PASSWORD;
     private static final String DEFAULT_QUERY = "SELECT MemberID, RegNo, Name, EMail," +
-	        "Major, ValidUpto FROM Members";
+	        "Major, ValidUpto FROM members";
 
 	//constructor of listMembers
 	public ListMembers() {

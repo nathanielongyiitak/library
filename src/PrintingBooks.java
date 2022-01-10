@@ -63,7 +63,7 @@ public class PrintingBooks extends JInternalFrame implements Printable {
 		 * and connection. There is catch block SQLException for error *
 		 ***************************************************************/
 		try {
-			connection = DriverManager.getConnection(URL,"root","abc123");
+			connection = DriverManager.getConnection(URL,"root",Constants.PASSWORD);
 			statement = connection.createStatement();
 			resultset = statement.executeQuery(query);
 			textArea.append("=============== Books Information ===============\n\n");

@@ -133,14 +133,14 @@ public class RemoveMembers extends JInternalFrame {
 					Thread runner = new Thread() {
 						public void run() {
 							member = new Members();
-							member.connection("SELECT * FROM Members WHERE MemberID = " + data);
+							member.connection("SELECT * FROM members WHERE MemberID = " + data);
 							//for checking if the user borrowed any book form the library
 							int numberOfBooks = member.getNumberOfBooks();
                             int memberid=member.getMemberID();
                             if(memberid>=1)
                             {
 							if (numberOfBooks == 0) {
-								member.update("DELETE FROM Members WHERE MemberID = " + data);
+								member.update("DELETE FROM members WHERE MemberID = " + data);
 								//for setting the JTextField to null
 								//removeTextField.setText(null);
                                 dispose();

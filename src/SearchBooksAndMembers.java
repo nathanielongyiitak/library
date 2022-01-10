@@ -237,9 +237,9 @@ public class SearchBooksAndMembers extends JInternalFrame {
 				//for checking if there is a missing information
 				if (isBooksDataCorrect()) {
 					book = new Books();
-					String bookQuery="SELECT * FROM Books WHERE "+ booksData[0] + " LIKE " + booksData[1];
+					String bookQuery="SELECT * FROM books WHERE "+ booksData[0] + " LIKE " + booksData[1];
                     String bookListQuery = "SELECT BookID, Subject, Title, Author, Publisher," +
-					        "Copyright, Edition, Pages, NumberOfBooks,ISBN,Library,Availble,ShelfNo FROM Books" +
+					        "Copyright, Edition, Pages, NumberOfBooks,ISBN,Library,Availble,ShelfNo FROM books" +
 					        " WHERE " + booksData[0] + " LIKE " + booksData[1];
 					book.connection(bookQuery);
 					int bookID = book.getBookID();
@@ -270,9 +270,9 @@ public class SearchBooksAndMembers extends JInternalFrame {
 			public void actionPerformed(ActionEvent ae) {
 				if (isMembersDataCorrect()) {
 					member = new Members();
-					String memberQuery="SELECT * FROM Members WHERE "+ membersData[0] + " LIKE " + membersData[1];
+					String memberQuery="SELECT * FROM members WHERE "+ membersData[0] + " LIKE " + membersData[1];
                     String memberListQuery = "SELECT MemberID, RegNo, Name, EMail, Major, ValidUpto" +
-					        " FROM Members WHERE " + membersData[0] + " LIKE " + membersData[1];
+					        " FROM members WHERE " + membersData[0] + " LIKE " + membersData[1];
 					member.connection(memberQuery);
 					int memberID = member.getMemberID();
 					if (memberID != 0) {

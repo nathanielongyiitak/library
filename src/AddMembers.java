@@ -238,10 +238,10 @@ public class AddMembers extends JInternalFrame {
                                {
                                 member = new Members();
 								//for checking if there is no same information in the database
-								member.connection("SELECT * FROM Members WHERE RegNo = " + data[0]);
+								member.connection("SELECT * FROM members WHERE RegNo = " + data[0]);
 								int regNo = member.getRegNo();
 								if (Integer.parseInt(data[0]) != regNo) {
-									member.update("INSERT INTO Members (RegNo,Password,Name,EMail,Major,ValidUpto) VALUES (" +
+									member.update("INSERT INTO members (RegNo,Password,Name,EMail,Major,ValidUpto) VALUES (" +
 									        data[0] + ", '" + data[1] + "','" + data[2] + "','" +
 									        data[3] + "','" + data[4] + "','" + data[5] + "')");
 									//for setting the array of JTextField & JPasswordField to null

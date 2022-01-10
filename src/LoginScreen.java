@@ -84,9 +84,9 @@ public class LoginScreen extends JFrame {
         
         try {
 			Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false","root","abc123");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false","root",Constants.PASSWORD);
             Statement stmt = conn.createStatement();
-            stmt.execute("SELECT * FROM Login");
+            stmt.execute("SELECT * FROM login");
             ResultSet rst = stmt.getResultSet();
             boolean datafound = rst.next();
             if (datafound) {
@@ -113,7 +113,7 @@ public class LoginScreen extends JFrame {
         String username = txtUser.getText();
         String password = new String(txtPasswd.getPassword());
         String SQL;
-        SQL = "SELECT * FROM Login WHERE username='" + username + "'  AND password='" +
+        SQL = "SELECT * FROM login WHERE username='" + username + "'  AND password='" +
                 password + "'";
         try {
             Statement stmt = conn.createStatement();
@@ -133,7 +133,7 @@ public class LoginScreen extends JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error on login operation", "Login Error", JOptionPane.ERROR_MESSAGE);
         }//try catch closed
-    }//Login() closed
+    }//login() closed
 
     private class ButtonListener implements ActionListener {
 

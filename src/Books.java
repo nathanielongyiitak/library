@@ -114,7 +114,7 @@ public class Books {
 		 * and connection. There is catch block SQLException for error *
 		 ***************************************************************/
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false","root","abc123");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false","root",Constants.PASSWORD);
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(Query);
 			while (resultSet.next()) {
@@ -159,7 +159,7 @@ public class Books {
 		 ***************************************************************/
 		try {
 			//connection = DriverManager.getConnection("jdbc:odbc:JLibrary2");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false","root","abc123");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false","root",Constants.PASSWORD);
 			statement = connection.createStatement();
 			statement.executeUpdate(Query);
 			statement.close();

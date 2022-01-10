@@ -35,7 +35,7 @@ public class Members {
 	//private String URL = "jdbc:odbc:JLibrary";
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false";
     private static final String USER_NAME="root";
-    private static final String PASSWORD="abc123";
+    private static final String PASSWORD=Constants.PASSWORD;
 	public Members() {
 	}
 	/*public Members(int memberID, int ID, String password, String name, String email, String major, int numberOfBooks, int mony, Date expired) {

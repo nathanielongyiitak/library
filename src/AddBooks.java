@@ -190,18 +190,18 @@ public class AddBooks extends JInternalFrame {
                     Thread runner = new Thread() {
 
                         public void run() {
-                            //book = new Books();
+                            book = new Books();
                             //for checking if there is no double information in the database
-                            //book.connection("SELECT BookID FROM Books WHERE ISBN = '" + data[7] + "'");
-                            book.connection("SELECT * FROM Books WHERE ISBN = '" + data[7] + "'");
+                            //book.connection("SELECT BookID FROM books WHERE ISBN = '" + data[7] + "'");
+                            book.connection("SELECT * FROM books WHERE ISBN = '" + data[7] + "'");
                             String ISBN = book.getISBN();
                             if (!data[7].equalsIgnoreCase(ISBN)) {
                                 try{
-                                    String sql="INSERT INTO Books (Subject,Title,Author,Publisher,Copyright," +
+                                    String sql="INSERT INTO books (Subject,Title,Author,Publisher,Copyright," +
                                         "Edition,Pages,ISBN,NumberOfBooks,NumberOfAvailbleBooks,Library,Availble,ShelfNo) VALUES "+
                                         " (?,?,?,?,?,?,?,?,?,?,?,?,?)";
                                         Class.forName("com.mysql.jdbc.Driver");
-                                        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false","root","abc123");
+                                        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false","root",Constants.PASSWORD);
                                         PreparedStatement ps=con.prepareStatement(sql);
                                         ps.setString(1, data[0]);
                                         ps.setString(2, data[1]);

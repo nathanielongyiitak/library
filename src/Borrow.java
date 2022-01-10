@@ -31,7 +31,7 @@ public class Borrow {
 	//private String URL = "jdbc:odbc:JLibrary";
     private String DATABASE_URL = "jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false";
     private String USER_NAME="root";
-    private String PASSWORD="abc123";
+    private String PASSWORD=Constants.PASSWORD;
 
 	public Borrow() {
 	}
@@ -71,7 +71,7 @@ public class Borrow {
 		try {
 			connection = DriverManager.getConnection(DATABASE_URL,USER_NAME,PASSWORD);
 			statement = connection.createStatement();
-			//resultSet = statement.executeQuery("SELECT * FROM Borrow");
+			//resultSet = statement.executeQuery("SELECT * FROM borrow");
             resultSet = statement.executeQuery(Query);
 			while (resultSet.next()) {
 				bookID = resultSet.getInt(1);

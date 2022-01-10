@@ -61,7 +61,7 @@ public class ListSearchBooks extends JInternalFrame {
 		//final String DATABASE_URL = "jdbc:odbc:JLibrary";
         final String DATABASE_URL = "jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false";
         final String USER_NAME ="root";
-        final String PASSWORD ="abc123";
+        final String PASSWORD =Constants.PASSWORD;
 		final String DEFAULT_QUERY = query;
 
 		//for bassing the required information to the ResultSetTableModel object

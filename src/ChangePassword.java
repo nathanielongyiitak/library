@@ -299,8 +299,8 @@ public class ChangePassword extends JInternalFrame {
                             pswd = new Password();
                             String pd=new String(editTextField.getPassword());
 							//for checking if there is no same information in the database
-                            boolean userExit=pswd.connection("SELECT * FROM Login WHERE Password='" +pd+"'");
-                            //member.connection("SELECT * FROM Members WHERE ID = " + editTextField.getText());
+                            boolean userExit=pswd.connection("SELECT * FROM login WHERE Password='" +pd+"'");
+                            //member.connection("SELECT * FROM members WHERE ID = " + editTextField.getText());
                             //int ID = member.getID();
                             
                             
@@ -348,11 +348,11 @@ public class ChangePassword extends JInternalFrame {
                             if(presentDate.before(expiryDate))
                            {*/
 								pswd = new Password();
-                                /*member.connection("SELECT * FROM Members WHERE ID = " + data[0]);
+                                /*member.connection("SELECT * FROM members WHERE ID = " + data[0]);
 								int ID = member.getID();
 								if (Integer.parseInt(data[0]) != ID) {*/
 								//for updting the members database
-								pswd.update("UPDATE Login SET Username = '" + data[0] + "', Password = '" + data[1] + "' WHERE Username = '" + informationTextField[0].getText()+"'");
+								pswd.update("UPDATE login SET Username = '" + data[0] + "', Password = '" + data[1] + "' WHERE Username = '" + informationTextField[0].getText()+"'");
 								//for setting the array of JTextField to empty
 								//clearTextField();
                                 dispose();

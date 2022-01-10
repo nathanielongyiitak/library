@@ -296,8 +296,8 @@ private DateButton expiry_date;
 						public void run() {
                             member = new Members();
 							//for checking if there is no same information in the database
-							member.connection("SELECT * FROM Members WHERE MemberID = " + editTextField.getText());
-                            //member.connection("SELECT * FROM Members WHERE ID = " + editTextField.getText());
+							member.connection("SELECT * FROM members WHERE MemberID = " + editTextField.getText());
+                            //member.connection("SELECT * FROM members WHERE ID = " + editTextField.getText());
                             //int ID = member.getID();
                             int regNo = member.getRegNo();
 							if (regNo > 0) {
@@ -344,11 +344,11 @@ private DateButton expiry_date;
                             if(presentDate.before(expiryDate))
                            {
 								member = new Members();
-                                /*member.connection("SELECT * FROM Members WHERE ID = " + data[0]);
+                                /*member.connection("SELECT * FROM members WHERE ID = " + data[0]);
 								int ID = member.getID();
 								if (Integer.parseInt(data[0]) != ID) {*/
 								//for updting the members database
-								member.update("UPDATE Members SET RegNo = " + data[0] + ", Password = '" + data[1] + "', Name = '" +
+								member.update("UPDATE members SET RegNo = " + data[0] + ", Password = '" + data[1] + "', Name = '" +
 								        data[2] + "', EMail = '" + data[3] + "', Major = '" + data[4] + "', ValidUpto = '" +
 								        data[5] + "' WHERE MemberID = " + editTextField.getText());
 								//for setting the array of JTextField to empty

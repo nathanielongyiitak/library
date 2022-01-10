@@ -136,7 +136,7 @@ public class RemoveBooks extends JInternalFrame {
 						public void run() {
 							book = new Books();
 							//for getting the information
-							book.connection("SELECT * FROM Books WHERE BookID =" + data);
+							book.connection("SELECT * FROM books WHERE BookID =" + data);
 							int bookID = book.getBookID();
 							int numberOfBooks = book.getNumberOfBooks();
                             int numberofavailblebooks=book.getNumberOfAvailbleBooks();
@@ -145,7 +145,7 @@ public class RemoveBooks extends JInternalFrame {
                                 if(numberofavailblebooks>=1)
                                 {
 								if (numberOfBooks == numberofavailblebooks) {
-									book.update("DELETE FROM Books WHERE BookID =" + data);
+									book.update("DELETE FROM books WHERE BookID =" + data);
 									//for setting JTextField to null
 									//removeTextField.setText(null);
                                     dispose();
@@ -159,7 +159,7 @@ public class RemoveBooks extends JInternalFrame {
                                         availble=true;
 									numberOfBooks -= 1;
                                     numberofavailblebooks -= 1;
-									book.update("UPDATE Books SET NumberOfBooks =" + numberOfBooks + ", NumberOfAvailbleBooks="+numberofavailblebooks+", Availble="+availble+" WHERE BookID =" + data);
+									book.update("UPDATE books SET NumberOfBooks =" + numberOfBooks + ", NumberOfAvailbleBooks="+numberofavailblebooks+", Availble="+availble+" WHERE BookID =" + data);
 									//for setting JTextField to null
 									//removeTextField.setText(null);
                                     dispose();

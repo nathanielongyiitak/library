@@ -185,13 +185,13 @@ public class ReturnBooks extends JInternalFrame implements ActionListener {
                         book = new Books();
                         member = new Members();
                         borrow = new Borrow();
-                        borrow.connection("SELECT * FROM Borrow WHERE BookID="+data[0]+" AND MemberID="+data[1]);
+                        borrow.connection("SELECT * FROM borrow WHERE BookID="+data[0]+" AND MemberID="+data[1]);
                             int bookid=borrow.getBookID();
                             int memberid=borrow.getMemberID();
                             if((bookid==Integer.parseInt(data[0])) && (memberid==Integer.parseInt(data[1])))
                             {
-                        book.connection("SELECT * FROM Books WHERE BookID = " + data[0]);
-                        member.connection("SELECT * FROM Members WHERE MemberID = " + data[1]);
+                        book.connection("SELECT * FROM books WHERE BookID = " + data[0]);
+                        member.connection("SELECT * FROM members WHERE MemberID = " + data[1]);
                         int numberOfAvailbleBooks = book.getNumberOfAvailbleBooks();
                         int numberOfBorrowedBooks = book.getNumberOfBorrowedBooks() - 1;
                         int numberOfBooks = member.getNumberOfBooks();
@@ -199,20 +199,20 @@ public class ReturnBooks extends JInternalFrame implements ActionListener {
                         if (numberOfAvailbleBooks == 0 && numberOfBooks > 0) {
                             numberOfAvailbleBooks += 1;
                             numberOfBooks -= 1;
-                            book.update("UPDATE Books SET NumberOfAvailbleBooks =" + numberOfAvailbleBooks +
+                            book.update("UPDATE books SET NumberOfAvailbleBooks =" + numberOfAvailbleBooks +
                                     ",NumberOfBorrowedBooks =" + numberOfBorrowedBooks + ",Availble = true WHERE BookID =" + data[0]);
-                            member.update("UPDATE Members SET NumberOfBooks =" + numberOfBooks + " WHERE MemberID =" + data[1]);
-                            borrow.update("DELETE FROM Borrow WHERE BookID =" + data[0] + " AND MemberID =" + data[1]);
+                            member.update("UPDATE members SET NumberOfBooks =" + numberOfBooks + " WHERE MemberID =" + data[1]);
+                            borrow.update("DELETE FROM borrow WHERE BookID =" + data[0] + " AND MemberID =" + data[1]);
                             //for setting the array of JTextField to null
                             //clearTextField();
                             dispose();
                         } else if (numberOfAvailbleBooks > 0 && numberOfBooks > 0) {
                             numberOfAvailbleBooks += 1;
                             numberOfBooks -= 1;
-                            book.update("UPDATE Books SET NumberOfAvailbleBooks =" + numberOfAvailbleBooks +
+                            book.update("UPDATE books SET NumberOfAvailbleBooks =" + numberOfAvailbleBooks +
                                     ",NumberOfBorrowedBooks =" + numberOfBorrowedBooks + " WHERE BookID =" + data[0]);
-                            member.update("UPDATE Members SET NumberOfBooks =" + numberOfBooks + " WHERE MemberID =" + data[1]);
-                            borrow.update("DELETE FROM Borrow WHERE BookID =" + data[0] + " AND MemberID =" + data[1]);
+                            member.update("UPDATE members SET NumberOfBooks =" + numberOfBooks + " WHERE MemberID =" + data[1]);
+                            borrow.update("DELETE FROM borrow WHERE BookID =" + data[0] + " AND MemberID =" + data[1]);
                             //for setting the array of JTextField to null
                             //clearTextField();
                             dispose();
@@ -255,12 +255,12 @@ public class ReturnBooks extends JInternalFrame implements ActionListener {
                 try {
                     int fineamt = Integer.parseInt(txtFinePerDay.getText());
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false","root","abc123");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false","root",Constants.PASSWORD);
                     Statement st = con.createStatement();
                     int bookid = Integer.parseInt(informationTextField[0].getText());
                     int memid = Integer.parseInt(informationTextField[1].getText());
                     try {
-                        String sql = "SELECT DayOfReturn from Borrow where MemberID=" + memid + " and BookID=" + bookid;
+                        String sql = "SELECT DayOfReturn FROM borrow where MemberID=" + memid + " and BookID=" + bookid;
                         ResultSet rs = st.executeQuery(sql);
                         if (rs.next()) {
                             

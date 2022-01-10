@@ -205,13 +205,13 @@ private DateButton return_date;
 							book = new Books();
 							member = new Members();
 							borrow = new Borrow();
-                            borrow.connection("SELECT * FROM Borrow WHERE BookID="+data[0]+" AND MemberID="+data[1]);
+                            borrow.connection("SELECT * FROM borrow WHERE BookID="+data[0]+" AND MemberID="+data[1]);
                             int bookid=borrow.getBookID();
                             int memberid=borrow.getMemberID();
                             if((bookid!=Integer.parseInt(data[0])) && (memberid!=Integer.parseInt(data[1])))
                             {
-							book.connection("SELECT * FROM Books WHERE BookID = " + data[0]);
-							member.connection("SELECT * FROM Members WHERE MemberID = " + data[1]);
+							book.connection("SELECT * FROM books WHERE BookID = " + data[0]);
+							member.connection("SELECT * FROM members WHERE MemberID = " + data[1]);
                             Date expiryDate= new Date();
                             expiryDate=member.getValidUpto();
                             if(presentDate.before(expiryDate))
@@ -226,10 +226,10 @@ private DateButton return_date;
 							//for checking if there is one book in the database
 							if (numberOfAvailbleBooks == 1) {
 								numberOfAvailbleBooks -= 1;
-								book.update("UPDATE Books SET NumberOfAvailbleBooks =" + numberOfAvailbleBooks +
+								book.update("UPDATE books SET NumberOfAvailbleBooks =" + numberOfAvailbleBooks +
 								        ",NumberOfBorrowedBooks =" + numberOfBorrowedBooks + ",Availble = false WHERE BookID =" + data[0]);
-								member.update("UPDATE Members SET NumberOfBooks = " + numberOfBooks + " WHERE MemberID = " + data[1]);
-								borrow.update("INSERT INTO Borrow (BookID, MemberID, DayOfBorrowed, DayOfReturn) VALUES (" +
+								member.update("UPDATE members SET NumberOfBooks = " + numberOfBooks + " WHERE MemberID = " + data[1]);
+								borrow.update("INSERT INTO borrow (BookID, MemberID, DayOfBorrowed, DayOfReturn) VALUES (" +
 								        data[0] + "," + data[1] + ",'" + data[2] + "','" + data[3] + "')");
 								//for setting the array of JTextField to null
 								//clearTextField();
@@ -237,10 +237,10 @@ private DateButton return_date;
 							}
 							else if (numberOfAvailbleBooks > 1) {
 								numberOfAvailbleBooks -= 1;
-								book.update("UPDATE Books SET NumberOfAvailbleBooks =" + numberOfAvailbleBooks +
+								book.update("UPDATE books SET NumberOfAvailbleBooks =" + numberOfAvailbleBooks +
 								        ",NumberOfBorrowedBooks =" + numberOfBorrowedBooks + " WHERE BookID =" + data[0]);
-								member.update("UPDATE Members SET NumberOfBooks =" + numberOfBooks + " WHERE MemberID =" + data[1]);
-								borrow.update("INSERT INTO Borrow (BookID, MemberID, DayOfBorrowed, DayOfReturn) VALUES (" +
+								member.update("UPDATE members SET NumberOfBooks =" + numberOfBooks + " WHERE MemberID =" + data[1]);
+								borrow.update("INSERT INTO borrow (BookID, MemberID, DayOfBorrowed, DayOfReturn) VALUES (" +
 								        data[0] + "," + data[1] + ",'" + data[2] + "','" + data[3] + "')");
 								//for setting the array of JTextField to null
 								//clearTextField();

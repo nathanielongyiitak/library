@@ -242,7 +242,7 @@ public class EditBooks extends JInternalFrame {
 						public void run() {
                             book = new Books();
 							//for checking if there is no same information in the database
-							book.connection("SELECT * FROM Books WHERE BookID = " + editTextField.getText());
+							book.connection("SELECT * FROM books WHERE BookID = " + editTextField.getText());
 							int copyright = book.getCopyright();
 							if (copyright > 0) {
 								informationTextField[0].setText(book.getSubject());
@@ -283,7 +283,7 @@ public class EditBooks extends JInternalFrame {
 					Thread runner = new Thread() {
 						public void run() {
 							book = new Books();
-                            book.connection("SELECT * FROM Books WHERE BookID = " + editTextField.getText());
+                            book.connection("SELECT * FROM books WHERE BookID = " + editTextField.getText());
                             int numberofborrowedbooks=book.getNumberOfBorrowedBooks();
                             if((Integer.parseInt(data[8]))>=numberofborrowedbooks)
                             {
@@ -298,7 +298,7 @@ public class EditBooks extends JInternalFrame {
                                   availble = false;
                                   numberofavailblebooks=0;
                               }
-                              book.update("UPDATE Books SET Subject = '" + data[0] + "',Title = '" + data[1] + "',Author = '" + data[2] +
+                              book.update("UPDATE books SET Subject = '" + data[0] + "',Title = '" + data[1] + "',Author = '" + data[2] +
 							        "',Publisher = '" + data[3] + "',Copyright =" + data[4] + ",Edition =" + data[5] +
 							        ",Pages =" + data[6] + ",ISBN = '" + data[7] + "',NumberOfBooks =" + data[8] +
 							        ",NumberOfAvailbleBooks =" + numberofavailblebooks + ",Library = '" + data[9] + "',Availble =" + availble +

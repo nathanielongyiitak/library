@@ -47,7 +47,7 @@ public class SignUp extends JFrame {
     private Statement stmt;
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/library2?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false";
     private static final String USER_NAME="root";
-    private static final String PASSWORD="abc123";
+    private static final String PASSWORD=Constants.PASSWORD;
     //private Statement stat=null;
     //private ResultSet resultSet=null;
     Dimension screen = Toolkit.getDefaultToolkit().getScreenSize(); 
@@ -99,7 +99,7 @@ this.getContentPane().setLayout(null);
                 
         /*try {
             
-            /*stmt.execute("SELECT * FROM Login");
+            /*stmt.execute("SELECT * FROM login");
             ResultSet rst = stmt.getResultSet();
             boolean datafound = rst.next();
             if (datafound) {
@@ -116,7 +116,7 @@ this.getContentPane().setLayout(null);
         String password = new String(txtPasswd.getPassword());
         String confirmPassword = new String(txtConfirmPasswd.getPassword());
         String SQL;
-        SQL = "INSERT INTO Login VALUES('"+username+"',"+"'"+password+"')";
+        SQL = "INSERT INTO login VALUES('"+username+"',"+"'"+password+"')";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DATABASE_URL,USER_NAME,PASSWORD);
