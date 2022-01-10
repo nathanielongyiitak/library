@@ -31,7 +31,7 @@ public class Splash {
         splash.setBounds(0,0,screen.width,screen.height-30);
 
         // build the splash screen
-        JLabel label = new JLabel(new ImageIcon(ClassLoader.getSystemResource("images/splash.JPG")));
+        JLabel label = new JLabel(new ImageIcon(ClassLoader.getSystemResource("images/splash.jpg")));
         JLabel copyrt = new JLabel("", JLabel.CENTER);
         copyrt.setFont(new Font("Tahoma", Font.BOLD, 10));
         //copyrt.setBorder(BorderFactory.createEtchedBorder());

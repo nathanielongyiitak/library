@@ -50,10 +50,10 @@ public class LoginScreen extends JFrame {
         lblPasswd = new JLabel("Password");
         txtUser = new JTextField();
         txtPasswd = new JPasswordField();
-        btnLogin = new JButton("Login", new ImageIcon(ClassLoader.getSystemResource("images\\Login.png")));
-        btnCancel = new JButton("Cancel", new ImageIcon(ClassLoader.getSystemResource("images\\Cancel.png")));
-        //btnSignup = new JButton("Signup", new ImageIcon(ClassLoader.getSystemResource("images\\Cancel.png")));
-        btnSignup = new JButton(new ImageIcon(ClassLoader.getSystemResource("images\\Signup.png")));
+        btnLogin = new JButton("Login", new ImageIcon(ClassLoader.getSystemResource("images/Login.png")));
+        btnCancel = new JButton("Cancel", new ImageIcon(ClassLoader.getSystemResource("images/cancel.png")));
+        //btnSignup = new JButton("Signup", new ImageIcon(ClassLoader.getSystemResource("images/cancel.png")));
+        btnSignup = new JButton(new ImageIcon(ClassLoader.getSystemResource("images/Signup.png")));
 
         lblUsername.setBounds(40, 30, 100, 25);
         lblPasswd.setBounds(40, 65, 100, 25);
