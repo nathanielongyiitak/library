@@ -10,16 +10,12 @@
  */
 
 //import the packages for using the classes in them into the program
-import com.lms.spring.AddBooksBean;
-import com.lms.spring.BooksBean;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class JLibrary extends JFrame implements ActionListener {
     //for creating the JPanel
@@ -44,8 +40,6 @@ public class JLibrary extends JFrame implements ActionListener {
     private StatusBar statusbar = new StatusBar();
     private ListBooks listBooks;
     private AddBooks addBooks;
-//    ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-//    AddBooksBean addBooksBean = (AddBooksBean) context.getBean("AddBooksBean");
     private ListAvailbleBooks listAvailble;
     private ListBorrowedBooks listBorrowed;
     private EditBooks editBooks;

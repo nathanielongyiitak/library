@@ -10,7 +10,6 @@
  */
 //import the packages for using the classes in them into the program
 
-import com.lms.spring.BooksBean;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,8 +20,6 @@ import java.awt.event.KeyListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *A public class
@@ -70,8 +67,6 @@ public class AddBooks extends JInternalFrame {
 
     //create objects from another classes for using them in the ActionListener
     private Books book;
-//    ApplicationContext context = new ClassPathXmlApplicationContext("/springtest/Beans.xml");
-//    BooksBean booksBean = (BooksBean) context.getBean("booksBean");
     //for creating an array of string to store the data
     private String[] data;
     //for setting availble option to true
@@ -190,7 +185,7 @@ public class AddBooks extends JInternalFrame {
                     Thread runner = new Thread() {
 
                         public void run() {
-                            //book = new Books();
+                            book = new Books();
                             //for checking if there is no double information in the database
                             //book.connection("SELECT BookID FROM Books WHERE ISBN = '" + data[7] + "'");
                             book.connection("SELECT * FROM Books WHERE ISBN = '" + data[7] + "'");
